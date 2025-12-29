@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+}
+
+.grid{
+    background-color: orange;
+}
+
+.active{
+    background-color: orangered;
+}
+
