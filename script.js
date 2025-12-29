@@ -1,14 +1,14 @@
 let grid = document.createElement("div");
 let row = document.createElement("div");
 let gridSize = 16;
-// grid.style.width = "50px";
-// grid.style.height = "50px";
-// grid.style.border = "1px solid red"
+
+
 
 
 
 function makeGrid(){
-
+    const hue = Math.floor(Math.random()*360);
+    
     for(let i=0;i<gridSize;i++){
         const copy = row.cloneNode(true);
         copy.id = i;
@@ -20,9 +20,12 @@ function makeGrid(){
         let k = j;
         for(let i=0;i<gridSize;i++){
             const copy = grid.cloneNode(true);
-            copy.className = "grid";
+            copy.style.setProperty("--color",hue);
+            copy.classList.add("color");
+            copy.classList.add("grid") 
             document.getElementById(k).appendChild(copy);
         }
+
         
     }
 }
@@ -41,7 +44,7 @@ function checkGrid(){
             box[i].addEventListener('mouseleave',()=>{
                 setTimeout(()=>{
                     box[i].classList.remove('active');
-                },1000)
+                },8000)
             });
     }
 }
@@ -50,6 +53,10 @@ const btn = document.querySelector(".new");
 
 btn.addEventListener('click',()=>{
     gridSize = parseInt(prompt("Enter Grid Size"));
+    if(gridSize>100){
+        gridSize=0;
+        alert("Grid size cannot be greater than 100");
+    }
     document.querySelector(".container").textContent = "";
     makeGrid();
     checkGrid();
