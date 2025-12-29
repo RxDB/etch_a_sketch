@@ -35,13 +35,13 @@ function checkGrid(){
     const box = document.querySelectorAll(".grid");
     
     for(let i=0;i<box.length;i++){
-        box[i].addEventListener('mouseenter',()=>{
+        box[i].addEventListener('pointerenter',()=>{
             box[i].classList.add('active');
         });
     }
     
     for(let i=0;i<box.length;i++){
-            box[i].addEventListener('mouseleave',()=>{
+            box[i].addEventListener('pointerleave',()=>{
                 setTimeout(()=>{
                     box[i].classList.remove('active');
                 },8000)
