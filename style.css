@@ -9,6 +9,10 @@
 
 .grid{
     background-color: orange;
+    border: 1px solid red;
+    width: 50px;
+    aspect-ratio: 1/1;
+
 }
 
 .active{

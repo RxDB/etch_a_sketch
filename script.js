@@ -1,12 +1,13 @@
 let grid = document.createElement("div");
 let row = document.createElement("div");
 let gridSize = 16;
-grid.style.width = "50px";
-grid.style.height = "50px";
-grid.style.border = "1px solid red"
+// grid.style.width = "50px";
+// grid.style.height = "50px";
+// grid.style.border = "1px solid red"
 
 
 
+function makeGrid(){
 
     for(let i=0;i<gridSize;i++){
         const copy = row.cloneNode(true);
@@ -24,22 +25,33 @@ grid.style.border = "1px solid red"
         }
         
     }
-
-
-const box = document.querySelectorAll(".grid");
-
-for(let i=0;i<box.length;i++){
-    box[i].addEventListener('mouseenter',()=>{
-        box[i].classList.add('active');
-    });
 }
 
-for(let i=0;i<box.length;i++){
-        box[i].addEventListener('mouseleave',()=>{
-            setTimeout(()=>{
-                box[i].classList.remove('active');
-            },1000)
+function checkGrid(){
+
+    const box = document.querySelectorAll(".grid");
+    
+    for(let i=0;i<box.length;i++){
+        box[i].addEventListener('mouseenter',()=>{
+            box[i].classList.add('active');
         });
+    }
+    
+    for(let i=0;i<box.length;i++){
+            box[i].addEventListener('mouseleave',()=>{
+                setTimeout(()=>{
+                    box[i].classList.remove('active');
+                },1000)
+            });
+    }
 }
 
 const btn = document.querySelector(".new");
+
+btn.addEventListener('click',()=>{
+    gridSize = parseInt(prompt("Enter Grid Size"));
+    document.querySelector(".container").textContent = "";
+    makeGrid();
+    checkGrid();
+})
+
